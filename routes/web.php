@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,4 +37,9 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/admin/password', 'ChangePassword')->name('change.password')->middleware(['auth', 'verified', 'admin']);
     Route::post('/admin/password.update', 'UpdatePassword')->name('update.password')->middleware(['auth', 'verified', 'admin']);
 }); //End Method
+
+Route::middleware(['auth', 'admin', 'verified'])->name('admin.')->prefix('admin.')->group(function() {
+    Route::resource('admin/category', CategoryController::class);
+    Route::resource('admin/menu', MenuController::class);
+});
 require __DIR__.'/auth.php';
