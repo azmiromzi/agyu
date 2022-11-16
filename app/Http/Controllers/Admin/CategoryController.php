@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function index() {
-        return view('admin.category.index');
+
+        $categories = Category::get();
+        return view('admin.category.index', compact(['categories']));
     }
 
     public function create() {
@@ -27,7 +29,7 @@ class CategoryController extends Controller
     }
 
     public function edit(Category $category) {
-        return view('admin.category.edit');
+        return view('admin.category.edit', compact(['category']));
     }
 
     public function update(Category $category, Request $request) {
