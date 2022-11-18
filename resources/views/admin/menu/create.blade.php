@@ -18,7 +18,7 @@
 
                                     <input class="form-control mb-3" type="number" placeholder="Price" name="price">
 
-                                    <textarea id="elm1" name="desc" placeholder="Category Description"></textarea>
+                                    <textarea id="elm1" name="desc" placeholder="Menu Description"></textarea>
 
                                     <div class="row mb-3">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Menu Image </label>

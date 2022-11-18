@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('pesanans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('menu_id')->constrained('menus')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->enum('status', ['sedang di proses', 'sedang di antar', 'pesanan diterima']);
+            $table->text('special_request')->nullable();
             $table->timestamps();
         });
     }
