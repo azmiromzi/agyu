@@ -3,7 +3,6 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\User\PesananController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,14 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
-Route::middleware(['auth', 'verified'])->name('user')->prefix('user')->group(function() {
-    Route::get('/dashboard', function () {
-        return view('dashboard')->name('dashboard');
-    });
-    Route::get('pesanan', [PesananController::class, 'create'])->name('pesanan.create');
-});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/admin/dashboard', function () {
     return view('admin.index');
@@ -44,9 +38,8 @@ Route::controller(AdminController::class)->group(function(){
     Route::post('/admin/password.update', 'UpdatePassword')->name('update.password')->middleware(['auth', 'verified', 'admin']);
 }); //End Method
 
-Route::middleware(['auth', 'admin', 'verified'])->name('admin.')->prefix('admin')->group(function() {
+Route::middleware(['auth', 'admin', 'verified'])->name('admin.')->prefix('admin.')->group(function() {
     Route::resource('admin/category', CategoryController::class);
     Route::resource('admin/menu', MenuController::class);
 });
-
 require __DIR__.'/auth.php';
