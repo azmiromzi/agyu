@@ -12,28 +12,33 @@
 
                         <div class="table-responsive">
                             <table class="table table-editable table-nowrap align-middle table-edits">
-                                <a href="{{ route('admin.category.create') }}" class="btn btn-success mt-3">Create New Category</a>
+                                <a href="{{ route('admin.menu.create') }}" class="btn btn-success mt-3">Create New Menu Makanan</a>
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Product name</th>
                                         <th>Descripsi</th>
+                                        <th>Price</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($categories as $category )
+                                    @foreach ($menus as $menu)
 
                                         <tr data-id="1">
-                                            <td data-field="id" style="width: 80px">{{ $loop->iteration }}</td>
-                                            <td data-field="name">{{ $category->name }}</td>
-                                            <td data-field="gender">{!! $category->desc !!}</td>
+                                            <td data-field="id" style="width: 80px">{{ $loop->iteration }} </td>
+                                            <td>{{ $menu->category->name }}</td>
+                                            <td>{{ $menu->name }}</td>
+                                            <td>{!! $menu->desc !!}</td>
+                                            <td>{{ $menu->price }}</td>
+
                                             <td style="width: 100px" class="d-flex">
-                                                <a class="btn btn-outline-secondary btn-sm edit me-1" title="Edit" href="{{ route('admin.category.edit', $category->id) }}">
+                                                <a class="btn btn-outline-secondary btn-sm edit me-1" title="Edit" href="{{ route('admin.menu.edit', $menu->id) }}">
                                                     <i class="fas fa-pencil-alt"></i>
                                                 </a>
 
-                                                <form action="{{ route('admin.category.destroy', $category->id) }}" method="post">
+                                                <form action="{{ route('admin.menu.destroy', $menu->id) }}" method="post">
                                                     @method('DELETE')
                                                     @csrf
                                                     <button type="submit" class="btn btn-outline-secondary btn-sm edit">
@@ -44,8 +49,6 @@
                                             </td>
                                         </tr>
                                     @endforeach
-
-
                                 </tbody>
                             </table>
                         </div>

@@ -10,4 +10,9 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'desc'];
+
+
+    public function menu() {
+        return $this->hasMany(Menu::class);
+    }
 }
