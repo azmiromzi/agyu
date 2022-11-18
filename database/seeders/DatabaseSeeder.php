@@ -28,6 +28,12 @@ class DatabaseSeeder extends Seeder
             'is_admin' => 'admin',
             'password' => Hash::make("password")
         ]);
+        \App\Models\User::factory()->create([
+            'name' => 'user',
+            'email' => 'user@gmail.com',
+            'is_admin' => 'user',
+            'password' => Hash::make("password")
+        ]);
 
         return $this->call([
             CategorySeeder::class
