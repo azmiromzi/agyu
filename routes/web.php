@@ -31,6 +31,7 @@ Route::get('/dashboard', function () {
 Route::middleware('auth', 'verified', 'user')->name('user.')->prefix('user')->group(function() {
     Route::get('menu', [PesananController::class, 'index'])->name('menu');
     Route::get('menu/pesanan/{id}', [PesananController::class, 'create'])->name('menu.pesanan');
+    Route::post('menu/pesanan/', [PesananController::class, 'store'])->name('menu.create.pesan');
 });
 
 Route::get('/admin/dashboard', function () {
