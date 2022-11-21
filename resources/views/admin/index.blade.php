@@ -28,8 +28,8 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="flex-grow-1">
-                                    <p class="text-truncate font-size-14 mb-2">Total Sales</p>
-                                    <h4 class="mb-2">1452</h4>
+                                    <p class="text-truncate font-size-14 mb-2">Total Menu</p>
+                                    <h4 class="mb-2">{{ $jumlahmenu }}</h4>
                                     <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i
                                                 class="ri-arrow-right-up-line me-1 align-middle"></i>9.23%</span>from
                                         previous period</p>
@@ -48,8 +48,8 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="flex-grow-1">
-                                    <p class="text-truncate font-size-14 mb-2">New Orders</p>
-                                    <h4 class="mb-2">938</h4>
+                                    <p class="text-truncate font-size-14 mb-2">Total Pesanan</p>
+                                    <h4 class="mb-2">{{ $jumlahpesanan }}</h4>
                                     <p class="text-muted mb-0"><span class="text-danger fw-bold font-size-12 me-2"><i
                                                 class="ri-arrow-right-down-line me-1 align-middle"></i>1.09%</span>from
                                         previous period</p>
@@ -68,7 +68,7 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="flex-grow-1">
-                                    <p class="text-truncate font-size-14 mb-2">New Users</p>
+                                    <p class="text-truncate font-size-14 mb-2">Total Pelanggan</p>
                                     <h4 class="mb-2">8246</h4>
                                     <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i
                                                 class="ri-arrow-right-up-line me-1 align-middle"></i>16.2%</span>from

@@ -19,6 +19,7 @@ class MenuController extends Controller
 
     public function create() {
         $categories = Category::get();
+
         return view('admin.menu.create', compact(['categories']));
     }
 
@@ -27,9 +28,21 @@ class MenuController extends Controller
             'category_id' => ['required'],
             'name' => ['required', 'string', 'max:125'],
             'desc' => ['required', 'string'],
-            'price' => ['required', 'integer']
+            'price' => ['required']
         ]);
-        $validateData['image'] = $request->file('image')->store('public/photo/menu');
+        // if($request->hasFile('image')) {
+        //     $validateData['image'] = $request->file('image')->store('public/photo/menu');
+        // }
+        if($request->hasFile('image')) {
+            $file = $request->file('image');
+
+            $fileName = date('YMD') . $file->getClientOriginalName();
+
+            $file->move(public_path('upload/menu'), $fileName);
+
+            $validateData['image'] = $fileName;
+        }
+
 
         Menu::create($validateData);
 
@@ -50,9 +63,13 @@ class MenuController extends Controller
             'price' => ['required', 'integer']
         ]);
 
-        if($request->hasFile('image')) {
+        if($request->file('image')) {
             Storage::delete($menu->image);
-            $validateData['image'] = $request->file('image')->store('public/photo/menu');
+            $file = $request->file('image');
+            $fileName = date('YMD') . $file->getClientOriginalName();
+
+            $file->move(public_path('upload/menu'), $fileName);
+            $validateData['image'] = $fileName;
         }
 
         $menu->update($validateData);
