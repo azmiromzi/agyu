@@ -27,9 +27,12 @@
             <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="service-item rounded pt-3">
                     <div class="p-4">
-                        <img src="{{ asset('upload/menu/' . $keranjang->menu->image) }}" width="100px" height="100px" alt="" srcset="">
+                     <div class="d-flex align-items-center">
+                        <img src="{{ asset('upload/menu/' . $keranjang->menu->image) }}" class="mb-2" width="100px" height="100px" alt="" srcset="">
+                        <p class="bg-danger px-2 py-2 ms-2 text-white" style="font-size: 11px">{{ $keranjang->status }}</p>
+                     </div>
                         <h5>{{ $keranjang->menu->name }}</h5>
-                        <h5 class="mt-2">$ {{  $keranjang->menu->price  }}</h5>
+                        <h5 class="mt-2">$ {{  $keranjang->total_harga }}</h5>
                         <p>{!! $keranjang->menu->desc !!}</p>
                     </div>
                 </div>
