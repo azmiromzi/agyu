@@ -55,22 +55,14 @@
                     <a href="javascript: void(0);" class="waves-effect">
                         <i class="ri-eraser-fill"></i>
                         <span class="badge rounded-pill bg-danger float-end">1</span>
-                        <span>Forms</span>
+                        <span>Laporan</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="form-elements.html">Form Elements</a></li>
                     </ul>
                 </li>
 
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
-                        <span>Email</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="email-inbox.html">Inbox</a></li>
-                    </ul>
-                </li>
+
 
             </ul>
         </div>
