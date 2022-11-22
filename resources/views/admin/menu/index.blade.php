@@ -12,7 +12,8 @@
 
                         <div class="table-responsive">
                             <table class="table table-editable table-nowrap align-middle table-edits">
-                                <a href="{{ route('admin.menu.create') }}" class="btn btn-success mt-3">Create New Menu Makanan</a>
+                                <a href="{{ route('admin.menu.create') }}" class="btn btn-success mt-3 me-2">Create New Menu Makanan</a>
+                                <a href="{{ route('admin.cetakpdfmenu') }}" class="btn btn-success mt-3">laporan pdf Menu Makanan</a>
                                 <thead>
                                     <tr>
                                         <th>ID</th>

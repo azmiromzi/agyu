@@ -12,7 +12,8 @@
 
                         <div class="table-responsive">
                             <table class="table table-editable table-nowrap align-middle table-edits">
-                                <a href="{{ route('admin.category.create') }}" class="btn btn-success mt-3">Create New Category</a>
+                                <a href="{{ route('admin.category.create') }}" class="btn btn-success mt-3 me-2">Create New Category</a>
+                                <a href="{{ route('admin.cetakpdfcategory') }}" class="btn btn-success mt-3">cetak laporan pdf</a>
                                 <thead>
                                     <tr>
                                         <th>ID</th>

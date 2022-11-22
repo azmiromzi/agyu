@@ -8,7 +8,8 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h4 class="card-title">DATABASE pesanans</h4>
+                        <h4 class="card-title">DATABASE PESANAN</h4>
+                        <a href="{{ route('admin.cetakpdfpesanan') }}" class="btn btn-success mt-3">laporan pdf pesanan</a>
 
                         <div class="table-responsive">
                             <table class="table table-editable table-nowrap align-middle table-edits">

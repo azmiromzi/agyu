@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PesananController as AdminPesananController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Laporan\LaporanController;
 use App\Http\Controllers\User\PesananController;
 use App\Models\Category;
 use App\Models\Menu;
@@ -57,5 +58,10 @@ Route::middleware(['auth', 'admin', 'verified'])->name('admin.')->prefix('admin'
     Route::resource('admin/category', CategoryController::class);
     Route::resource('admin/menu', MenuController::class);
     Route::resource('admin/pesanan', AdminPesananController::class);
+
+    // laporan
+    Route::get('/exportlaporancategory', [LaporanController::class, 'exportpdfcategory'])->name('cetakpdfcategory');
+    Route::get('/exportlaporanmenu', [LaporanController::class, 'exportpdfmenu'])->name('cetakpdfmenu');
+    Route::get('/exportlaporanpesanan', [LaporanController::class, 'exportpdfpesanan'])->name('cetakpdfpesanan');
 });
 require __DIR__.'/auth.php';
