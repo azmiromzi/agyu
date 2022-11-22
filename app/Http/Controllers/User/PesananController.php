@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use App\Models\Pesanan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PesananController extends Controller
 {
@@ -41,7 +42,7 @@ class PesananController extends Controller
 
     public function keranjang() {
 
-        $keranjangs = Pesanan::get();
+        $keranjangs = Pesanan::where('user_id', Auth::user()->id)->with('menu', 'user')->get();
         return view('user.keranjang', compact(['keranjangs']));
     }
 }
