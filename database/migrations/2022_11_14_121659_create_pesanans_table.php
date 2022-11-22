@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->enum('status', ['sedang di proses', 'sedang di antar', 'pesanan diterima']);
             $table->text('special_request')->nullable();
+            $table->integer('total_harga');
             $table->timestamps();
         });
     }

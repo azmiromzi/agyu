@@ -21,11 +21,15 @@ class PesananController extends Controller
         return view('user.pesanmenu.create', compact(['pesan']));
     }
 
-    public function store(Request $request) {
+    public function store(Request $request, ) {
         $validatedData = $request->validate([
             'menu_id' => ['integer'],
             'special_request' => ['string', 'nullable',],
         ]);
+
+        if($request->total_harga) {
+            $validatedData['total_harga'] = $request->total_harga * $request->total_barang;
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['status'] = 'sedang di proses';
@@ -33,5 +37,11 @@ class PesananController extends Controller
         Pesanan::create($validatedData);
 
         return to_route('user.menu')->with('success', 'Pesanan Berhasil di Buat');
+    }
+
+    public function keranjang() {
+
+        $keranjangs = Pesanan::get();
+        return view('user.keranjang', compact(['keranjangs']));
     }
 }

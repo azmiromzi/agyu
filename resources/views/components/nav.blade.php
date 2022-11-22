@@ -20,7 +20,7 @@
                 </div>
             </div>
             <a href="" class="nav-item nav-link">Contact</a> --}}
-            <a href="" class="nav-item nav-link">Pesanan Kamu</a>
+            <a href="{{ route('user.keranjang') }}" class="nav-item nav-link">Pesanan Kamu</a>
             {{-- <a href="" class="nav-item nav-link">Pesanan Table</a> --}}
         </div>
        @guest()
