@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\PesananController as AdminPesananController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\User\PesananController;
 use App\Models\Category;
@@ -31,7 +32,8 @@ Route::get('/dashboard', function () {
 Route::middleware('auth', 'verified', 'user')->name('user.')->prefix('user')->group(function() {
     Route::get('menu', [PesananController::class, 'index'])->name('menu');
     Route::get('menu/pesanan/{id}', [PesananController::class, 'create'])->name('menu.pesanan');
-    Route::post('menu/pesanan/', [PesananController::class, 'store'])->name('menu.create.pesan');
+    Route::post('menu/pesanan', [PesananController::class, 'store'])->name('menu.create.pesan');
+    Route::get('keranjang', [PesananController::class, 'keranjang'])->name('keranjang');
 });
 
 Route::get('/admin/dashboard', function () {
@@ -54,5 +56,6 @@ Route::controller(AdminController::class)->group(function(){
 Route::middleware(['auth', 'admin', 'verified'])->name('admin.')->prefix('admin')->group(function() {
     Route::resource('admin/category', CategoryController::class);
     Route::resource('admin/menu', MenuController::class);
+    Route::resource('admin/pesanan', AdminPesananController::class);
 });
 require __DIR__.'/auth.php';

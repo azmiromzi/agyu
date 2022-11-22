@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use App\Models\Pesanan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PesananController extends Controller
 {
@@ -21,11 +22,15 @@ class PesananController extends Controller
         return view('user.pesanmenu.create', compact(['pesan']));
     }
 
-    public function store(Request $request) {
+    public function store(Request $request, ) {
         $validatedData = $request->validate([
             'menu_id' => ['integer'],
             'special_request' => ['string', 'nullable',],
         ]);
+
+        if($request->total_barang) {
+            $validatedData['total_harga'] = $request->harga_barang * $request->total_barang;
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['status'] = 'sedang di proses';
@@ -33,5 +38,11 @@ class PesananController extends Controller
         Pesanan::create($validatedData);
 
         return to_route('user.menu')->with('success', 'Pesanan Berhasil di Buat');
+    }
+
+    public function keranjang() {
+
+        $keranjangs = Pesanan::where('user_id', Auth::user()->id)->with('menu', 'user')->get();
+        return view('user.keranjang', compact(['keranjangs']));
     }
 }

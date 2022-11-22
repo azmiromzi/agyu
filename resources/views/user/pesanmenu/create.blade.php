@@ -36,10 +36,11 @@
                 <form action="{{ route('user.menu.create.pesan') }}" method="POST">
                     @csrf
                     <input type="text" name="menu_id" value="{{ $pesan->id }}" id="" hidden>
+                    <input type="number" name="harga_barang" value="{{ $pesan->price }}" hidden>
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="form-floating ">
-                                <input type="number" class="form-control" id="total_menu"  name="total_menu" >
+                                <input type="number" class="form-control" id="total_menu"  name="total_barang" >
                                 <label for="total_menu">Jumlah Makanan</label>
                             </div>
                         </div>

@@ -8,20 +8,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0 pe-4">
-            <a href="" class="nav-item nav-link active">Home</a>
-            {{-- <a href="" class="nav-item nav-link">About</a> --}}
-            {{-- <a href="" class="nav-item nav-link">Service</a> --}}
-            <a href="{{ route('user.menu') }}" class="nav-item nav-link">Menu</a>
-            {{-- <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                <div class="dropdown-menu m-0">
-                    <a href="" class="dropdown-item">Booking</a>
-                    <a href="" class="dropdown-item">Testimonial</a>
-                </div>
-            </div>
-            <a href="" class="nav-item nav-link">Contact</a> --}}
-            <a href="" class="nav-item nav-link">Pesanan Kamu</a>
-            {{-- <a href="" class="nav-item nav-link">Pesanan Table</a> --}}
+            <a href="{{ route('dashboard') }}" class="nav-item nav-link {{  Route::is('dashboard') ? 'active' : ''  }}">Home</a>
+            <a href="{{ route('user.menu') }}" class="nav-item nav-link {{  Route::is('user.menu') ? 'active' : ''  }}">Menu</a>
+            <a href="{{ route('user.keranjang') }}" class="nav-item nav-link {{  Route::is('user.keranjang') ? 'active' : ''  }}">Pesanan Kamu</a>
         </div>
        @guest()
         <a href="{{ route('login') }}" class="btn btn-primary py-2 px-4 ms-2">login</a>

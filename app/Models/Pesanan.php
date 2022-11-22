@@ -13,4 +13,8 @@ class Pesanan extends Model
     public function menu() {
         return $this->belongsTo(Menu::class);
     }
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
