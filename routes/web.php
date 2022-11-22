@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\PesananController as AdminPesananController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\User\PesananController;
 use App\Models\Category;
@@ -55,5 +56,6 @@ Route::controller(AdminController::class)->group(function(){
 Route::middleware(['auth', 'admin', 'verified'])->name('admin.')->prefix('admin')->group(function() {
     Route::resource('admin/category', CategoryController::class);
     Route::resource('admin/menu', MenuController::class);
+    Route::resource('admin/pesanan', AdminPesananController::class);
 });
 require __DIR__.'/auth.php';

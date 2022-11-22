@@ -28,8 +28,8 @@ class PesananController extends Controller
             'special_request' => ['string', 'nullable',],
         ]);
 
-        if($request->total_harga) {
-            $validatedData['total_harga'] = $request->total_harga * $request->total_barang;
+        if($request->total_barang) {
+            $validatedData['total_harga'] = $request->harga_barang * $request->total_barang;
         }
 
         $validatedData['user_id'] = auth()->user()->id;

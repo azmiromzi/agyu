@@ -29,7 +29,7 @@
                     <div class="p-4">
                      <div class="d-flex align-items-center">
                         <img src="{{ asset('upload/menu/' . $keranjang->menu->image) }}" class="mb-2" width="100px" height="100px" alt="" srcset="">
-                        <p class="bg-danger px-2 py-2 ms-2 text-white" style="font-size: 11px">{{ $keranjang->status }}</p>
+                        <p class="bg-primary px-2 py-2 ms-2 text-white" style="font-size: 11px">{{ $keranjang->status }}</p>
                      </div>
                         <h5>{{ $keranjang->menu->name }}</h5>
                         <h5 class="mt-2">$ {{  $keranjang->total_harga }}</h5>
